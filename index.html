@@ -125,37 +125,22 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
+            padding: 5rem 0 4rem 0;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 30%, rgba(0, 212, 170, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 70%, rgba(0, 184, 148, 0.05) 0%, transparent 50%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(5deg); }
+        .hero-image {
+            width: 100%;
+            display: block;
         }
 
         .hero-content {
             max-width: 1000px;
             text-align: center;
-            position: relative;
-            z-index: 1;
+            padding: 3rem 2rem 0;
         }
 
         .hero-badge {
@@ -267,6 +252,48 @@
         .section-desc {
             color: var(--text-muted);
             font-size: 1.1rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--dark-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 170, 0.3);
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-card h3 {
+            padding: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* About Section */
@@ -613,7 +640,7 @@
             }
 
             .hero {
-                padding: 6rem 1.5rem 3rem;
+                padding: 0 0 3rem;
             }
 
             section {
@@ -640,6 +667,7 @@
             <div class="logo">HOLO<span>PRO</span></div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#videos">Videos</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#industries">Industries</a></li>
                 <li><a href="#process">How It Works</a></li>
@@ -655,6 +683,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <img src="attachments/images/hero-banner.jpg" alt="HoloPro holographic displays showcasing luxury products" class="hero-image">
         <div class="hero-content">
             <span class="hero-badge">🇿🇦 South Africa's First Holographic Display Technology</span>
             <h1>Think Inside <span class="highlight">THE BOX</span></h1>
@@ -693,6 +722,29 @@
                 <div class="about-icon">🚀</div>
                 <h3>Innovation Leader</h3>
                 <p>Position your brand as forward-thinking and tech-savvy. Adopt technology not yet widely available in South Africa and differentiate from competitors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="video-section">
+        <div class="section-header">
+            <span class="section-label">See It in Action</span>
+            <h2 class="section-title">HoloPro in Motion</h2>
+            <p class="section-desc">Watch our holographic displays create unforgettable visual experiences.</p>
+        </div>
+        <div class="video-grid">
+            <div class="video-card">
+                <video controls preload="metadata" playsinline>
+                    <source src="attachments/holopro-intro.mp4" type="video/mp4">
+                </video>
+                <h3>HoloPro Introduction</h3>
+            </div>
+            <div class="video-card">
+                <video controls preload="metadata" playsinline>
+                    <source src="attachments/holopro-safw2024.mp4" type="video/mp4">
+                </video>
+                <h3>South African Fashion Week 2024</h3>
             </div>
         </div>
     </section>
@@ -848,11 +900,11 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">✉️</div>
-                        <a href="mailto:hannes@danzfussphoto.com">hannes@danzfussphoto.com</a>
+                        <a href="mailto:info@holopro.co.za">info@holopro.co.za</a>
                     </div>
                 </div>
                 <div class="contact-cta">
-                    <a href="mailto:hannes@danzfussphoto.com?subject=HoloPro Demo Request" class="btn-primary">
+                    <a href="mailto:info@holopro.co.za?subject=HoloPro Demo Request" class="btn-primary">
                         Request a Demo
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
